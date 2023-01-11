@@ -5,7 +5,7 @@
                 <v-col cols="12" lg="6">
                     <v-card  elevation="10">
                         <v-card-item>
-                            <v-card-title>Enter some data</v-card-title>
+                            <v-card-title>Enter some data and click the arrow</v-card-title>
                         </v-card-item>
                         <v-card-text>
                             <v-form  @submit.prevent="submitData();">
@@ -28,7 +28,7 @@
             </v-row>
         </v-container>
     </v-main>
-    <DataReturn ref="DataReturn"></DataReturn>
+    <DataReturn v-show="this.submitted" ref="DataReturn"></DataReturn>
 </template>
 
 <script>
@@ -41,6 +41,7 @@
                 locality: "",
                 selectType: "",
                 stopType: "",
+                submitted: false,
                 items: [
                     "Get Stop Count",
                     "Get Stops Locality and Type",
@@ -77,8 +78,11 @@
 
             submitData()
             {
+                this.submitted = true;
+
                 switch (this.selectType) {
                     case "Get Nearest Stop":
+                        this.$refs.DataReturn.getStopLatLon(this.latitude, this.longitude, this.stopType);
                         break;
                     case "Get Stop Count":
                         this.$refs.DataReturn.setStopCount(this.locality);

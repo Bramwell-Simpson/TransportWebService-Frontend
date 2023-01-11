@@ -13,6 +13,11 @@
 
 
   export default {
+
+    data() {
+      document.title = "Transport Service Web App"
+    },
+
     components: {
       MainScreen,
       Forms,

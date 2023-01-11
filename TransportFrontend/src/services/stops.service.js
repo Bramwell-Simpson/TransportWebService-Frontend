@@ -1,4 +1,5 @@
 import axios from "axios";
+
 /*
 const getStopCount = (locality) => {
     axios.get("http://localhost:8088/stopcount?locality=" + locality)
@@ -34,7 +35,22 @@ const getStopsTypeLocality = (locality, types) => {
     })
 }
 
+const getNearestStopsType = (lat, lon, types) => {
+    return fetch("http://localhost:8088/nearest?latitude=" + lat + "&longitude=" + lon + "&type=" + types)
+    .then((response) => {
+        return response.json();
+    })
+    .then((resJson) => {
+        return resJson;
+    })
+    .catch((error) => {
+        console.log("err", error)
+        return Promise.reject(error)
+    })
+}
+
 export default {
     getStopCount: getStopCount,
-    getStopsTypeLocality: getStopsTypeLocality
+    getStopsTypeLocality: getStopsTypeLocality,
+    getNearestStopsType: getNearestStopsType
 };

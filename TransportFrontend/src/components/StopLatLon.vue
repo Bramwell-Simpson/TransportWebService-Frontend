@@ -7,14 +7,14 @@
                     <v-card-subtitle>{{ stop.locality }}</v-card-subtitle>
                 </v-card-item>
                 <v-card-text>
+                    <div class="text-body-1">
+                        <p>Naptan Code - {{ stop.code }}</p>
+                    </div>
                     <div class="text-body-2">
-                        <p>Stop indicator - {{ stop.location.indicator }}</p>
-                        <p>Stop bearing - {{ stop.location.bearing }}</p>
                         <p>Stop street - {{ stop.location.street }}</p>
                         <p>Stop landmark - {{ stop.location.landmark }}</p>
-                    </div>
-                    <div class="text-body-1">
-                        Stop Type - {{ stop.type }}
+                        <p>Stop Latitude - {{ stop.location.latitude }}</p>
+                        <p>Stop Longitude - {{ stop.location.longitude }}</p>
                     </div>
                 </v-card-text>
             </v-card>
